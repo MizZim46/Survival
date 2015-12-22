@@ -28,10 +28,10 @@ class Craft
     private $items;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CoeurBundle\Entity\Items", inversedBy="besoin")
+     * @ORM\ManyToOne(targetEntity="CoeurBundle\Entity\Items", inversedBy="itemsneed")
      * @ORM\JoinColumn(name="id_besoin", referencedColumnName="id")
      */
-    private $itemsneed;
+    private $besoin;
 
     /**
      * @var int
@@ -121,29 +121,5 @@ class Craft
     public function getBesoin()
     {
         return $this->besoin;
-    }
-
-    /**
-     * Set itemsneed
-     *
-     * @param \CoeurBundle\Entity\Items $itemsneed
-     *
-     * @return Craft
-     */
-    public function setItemsneed(\CoeurBundle\Entity\Items $itemsneed = null)
-    {
-        $this->itemsneed = $itemsneed;
-
-        return $this;
-    }
-
-    /**
-     * Get itemsneed
-     *
-     * @return \CoeurBundle\Entity\Items
-     */
-    public function getItemsneed()
-    {
-        return $this->itemsneed;
     }
 }

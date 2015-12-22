@@ -19,6 +19,7 @@ class CraftController extends Controller
             $stats = $em->getRepository('CoeurBundle:Stats')->findOneByUtilisateurs($user); // On récupère les stats
             $ressources = $em->getRepository('CoeurBundle:Ressources')->getAllItems($user); // On récupère les Ressources
             $items = $em->getRepository('CoeurBundle:Items')->findAll(); // On récupère les besoins de l'item
+            $craft = $em->getRepository('CoeurBundle:Craft')->findByItems($items); // On récupère les besoins de l'item
             $ressourcesSacADos = $em->getRepository('CoeurBundle:Ressources')->findOneBy(array('items' => 11, 'utilisateurss' => $user->getId())); // On récupère l'item "11" dans les ressources
 
 // On définit ici le poids TOTAL de l'utilisateur
@@ -29,7 +30,7 @@ class CraftController extends Controller
                 $poidsTotal += $ressource->getItems()->getPoids() * $ressource->getQty();
                 $itemsTotal += 1;
                 $itemsTotalQty += $ressource->getQty();
-            }a
+            }
 
 // On va définir tout de suite si l'utilisateur possède un Sac à dos ou bien rien du tout...
             if ($ressourcesSacADos) {
@@ -38,6 +39,12 @@ class CraftController extends Controller
                 $PoidsMaxi = 5;
             }
 
+            foreach($craft as $itemsAll)
+            {
+                echo '<pre>';
+                \Doctrine\Common\Util\Debug::dump($itemsAll);
+                echo '</pre>';
+            }
 
 
             return $this->render('CoeurBundle:Default:craft.html.twig',

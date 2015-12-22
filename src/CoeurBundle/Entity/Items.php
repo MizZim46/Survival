@@ -32,9 +32,9 @@ class Items
     private $craft;
 
     /**
-     * @ORM\OneToMany(targetEntity="CoeurBundle\Entity\Craft", mappedBy="itemsneed")
+     * @ORM\OneToMany(targetEntity="CoeurBundle\Entity\Craft", mappedBy="besoin")
      */
-    private $besoin;
+    private $itemsneed;
 
     /**
      * @var string
@@ -278,5 +278,39 @@ class Items
     public function getBesoin()
     {
         return $this->besoin;
+    }
+
+    /**
+     * Add itemsneed
+     *
+     * @param \CoeurBundle\Entity\Craft $itemsneed
+     *
+     * @return Items
+     */
+    public function addItemsneed(\CoeurBundle\Entity\Craft $itemsneed)
+    {
+        $this->itemsneed[] = $itemsneed;
+
+        return $this;
+    }
+
+    /**
+     * Remove itemsneed
+     *
+     * @param \CoeurBundle\Entity\Craft $itemsneed
+     */
+    public function removeItemsneed(\CoeurBundle\Entity\Craft $itemsneed)
+    {
+        $this->itemsneed->removeElement($itemsneed);
+    }
+
+    /**
+     * Get itemsneed
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getItemsneed()
+    {
+        return $this->itemsneed;
     }
 }

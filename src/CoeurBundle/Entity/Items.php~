@@ -32,9 +32,9 @@ class Items
     private $craft;
 
     /**
-     * @ORM\OneToMany(targetEntity="CoeurBundle\Entity\Craft", mappedBy="itemsneed")
+     * @ORM\OneToMany(targetEntity="CoeurBundle\Entity\Craft", mappedBy="besoin")
      */
-    private $besoin;
+    private $itemsneed;
 
     /**
      * @var string

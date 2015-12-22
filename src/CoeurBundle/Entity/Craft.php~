@@ -28,10 +28,10 @@ class Craft
     private $items;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CoeurBundle\Entity\Items", inversedBy="besoin")
+     * @ORM\ManyToOne(targetEntity="CoeurBundle\Entity\Items", inversedBy="itemsneed")
      * @ORM\JoinColumn(name="id_besoin", referencedColumnName="id")
      */
-    private $itemsneed;
+    private $besoin;
 
     /**
      * @var int

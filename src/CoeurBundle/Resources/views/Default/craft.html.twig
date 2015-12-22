@@ -28,9 +28,14 @@
         <div id="craft">
             <span class="left">Items que vous pouvez craft</span>
             <div class="clear"></div>
+
             {% for itemsCraft in itemsAll %}
-                {{ itemsCraft.nom }} {{ itemsCraft.qty }}
+                <div class="item">
+                    <div class="nom">{{ itemsCraft.items.nom }}</div>
+                        <div class="ressource">{{ itemsCraft.besoin.nom }} x{{ itemsCraft.qty }}</div>
+                </div>
             {% endfor %}
+
         </div>
 
         <div id="inventaire">
