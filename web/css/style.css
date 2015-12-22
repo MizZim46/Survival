@@ -1,0 +1,71 @@
+#top {
+    position: relative;
+    width: 100%;
+}
+#top .left {
+    float: left;
+}
+#top .right {
+    float: right;
+}
+#top .left a {
+    background: #EEE;
+    color: #333;
+    padding: 10px;
+}
+#top .vie {
+    background: #FF1928;
+    color: #FFF;
+    padding: 9px;
+}
+#top .faim {
+    background: #913822;
+    color: #FFF;
+    padding: 9px;
+}
+#top .soif {
+    background: #54D3C4;
+    color: #FFF;
+    padding: 9px;
+}
+#top .fatigue {
+    background: #404040;
+    color: #FFF;
+    padding: 9px;
+}
+#top .temperature {
+    background: #1E52FF;
+    color: #FFF;
+    padding: 9px;
+}
+.clear {
+    clear: both;
+}
+#inventaire {
+    background: #333;
+    width: 465px;
+    height: 300px;
+    padding: 10px;
+    margin-top: 30px;
+}
+#inventaire .item {
+    border: solid 1px #FFF;
+    padding: 10px;
+    width: 130px;
+    float: left;
+}
+#inventaire .nom {
+    color: #FFF;
+}
+#inventaire .qty {
+    color: #FFF;
+    font-size: 10px;
+}
+#operation {
+    margin-top: 30px;
+}
+.inventaireMax {
+    background: #f2dede;
+    padding: 15px;
+    margin-top: 30px;
+}

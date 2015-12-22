@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+    {% block body %}
+
+        <div id="top">
+            <div class="left">
+                <a href="{{ path('coeur_homepage') }}">Chez {{ utilisateurs.username|title }}</a>
+
+                {% include 'CoeurBundle:Default:nav.html.twig' %}
+            </div>
+            <div class="right">
+                Vie : <span class="vie">{{ stats.vie }} / 100</span>
+                Faim : <span class="faim">{{ stats.faim }} / 100</span>
+                Soif : <span class="soif">{{ stats.soif }} / 100</span>
+                Fatigue : <span class="fatigue">{{ stats.fatigue }} / 100</span>
+                Température : <span class="temperature">{{ stats.temperature }} C°</span>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+        {% if poidsTotal >= poidsMaxi %}
+            <div class="inventaireMax">
+                Attention, vous porter trop de poids {{ poidsTotal }} Kg ! Vous ne pouvez porter que {{ poidsMaxi }} Kg
+            </div>
+        {% endif %}
+
+        <div id="operation">
+            <h3>Vous souhaitez jeter une de vos ressources :</h3>
+            {% if messageDelete is defined %}
+                {{ messageDelete }}
+            {% else %}
+                Une erreur s'est produite !
+            {% endif %}
+        </div>
+
+        <div id="inventaire">
+            <span class="left">Inventaire: {{ itemsTotal }} item(s) pour un total de {{ itemsTotalQty }} quantité(s)</span>
+            <span class="right">{{ poidsTotal }} kg / {{ poidsMaxi }} kg</span>
+            <div class="clear"></div>
+            {% for ressource in ressources %}
+                <div class="item">
+                    <span class="nom">{{ ressource.items.nom }}</span>
+                    <span class="qty">x {{ ressource.qty }}</span>
+                    <span class="action">
+                        {% if ressource.items.stats != "0,0,0,0,0" %}
+                            <a href="{{ path('coeur_utiliser', {'item': ressource.items.id}) }}">Utiliser</a>
+                        {% endif %}
+                        <a href="{{ path('coeur_delete', {'item': ressource.items.id}) }}">Jeter</a>
+                    </span>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endblock %}

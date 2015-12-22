@@ -1,0 +1,125 @@
+<?php
+
+namespace CoeurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Craft
+ *
+ * @ORM\Table(name="craft")
+ * @ORM\Entity(repositoryClass="CoeurBundle\Repository\CraftRepository")
+ */
+class Craft
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CoeurBundle\Entity\Items", inversedBy="craft")
+     * @ORM\JoinColumn(name="id_items", referencedColumnName="id")
+     */
+    private $items;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CoeurBundle\Entity\Items", inversedBy="besoin")
+     * @ORM\JoinColumn(name="id_besoin", referencedColumnName="id")
+     */
+    private $itemsneed;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="qty", type="integer")
+     */
+    private $qty;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set qty
+     *
+     * @param integer $qty
+     *
+     * @return Craft
+     */
+    public function setQty($qty)
+    {
+        $this->qty = $qty;
+
+        return $this;
+    }
+
+    /**
+     * Get qty
+     *
+     * @return int
+     */
+    public function getQty()
+    {
+        return $this->qty;
+    }
+
+    /**
+     * Set items
+     *
+     * @param \CoeurBundle\Entity\Items $items
+     *
+     * @return Craft
+     */
+    public function setItems(\CoeurBundle\Entity\Items $items = null)
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * Get items
+     *
+     * @return \CoeurBundle\Entity\Items
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    /**
+     * Set besoin
+     *
+     * @param \CoeurBundle\Entity\Items $besoin
+     *
+     * @return Craft
+     */
+    public function setBesoin(\CoeurBundle\Entity\Items $besoin = null)
+    {
+        $this->besoin = $besoin;
+
+        return $this;
+    }
+
+    /**
+     * Get besoin
+     *
+     * @return \CoeurBundle\Entity\Items
+     */
+    public function getBesoin()
+    {
+        return $this->besoin;
+    }
+}

@@ -1,0 +1,30 @@
+coeur_homepage:
+    path:     /
+    defaults: { _controller: CoeurBundle:Coeur:index }
+coeur_chasse:
+    path:     /chasser
+    defaults: { _controller: CoeurBundle:Chasser:chasser }
+coeur_mine:
+    path:     /miner
+    defaults: { _controller: CoeurBundle:Miner:miner }
+coeur_boire:
+    path:     /boire
+    defaults: { _controller: CoeurBundle:Boire:boire }
+coeur_utiliser:
+    path:     /utiliser/{item}
+    defaults: { _controller: CoeurBundle:Utiliser:utiliser }
+    requirements:
+      item: \d+
+coeur_delete:
+    path:     /jeter/{item}
+    defaults: { _controller: CoeurBundle:Jeter:delete }
+    requirements:
+      item: \d+
+coeur_craft:
+    path:     /crafting
+    defaults: { _controller: CoeurBundle:Craft:craft }
+coeur_craftitem:
+    path:     /crafting/{item}
+    defaults: { _controller: CoeurBundle:Craft:craftitem }
+    requirements:
+      item: \d+
